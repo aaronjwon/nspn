@@ -153,6 +153,12 @@
   /* ===== Section Shared ===== */
   .section{ padding:110px 40px; }
   #page-board .section{ background:linear-gradient(135deg, #DCE6F0, var(--orange-light)); }
+  #page-about .section{ background:linear-gradient(135deg, var(--teal-light), var(--orange-light)); }
+  #page-chapterleaders .section{ background:linear-gradient(120deg, var(--orange-light), var(--teal-light)); }
+  #page-structure{ background:linear-gradient(150deg, #DCE6F0, var(--teal-light)); }
+  #page-programs .section{ background:linear-gradient(100deg, var(--teal-light), #DCE6F0); }
+  #page-resources .section{ background:linear-gradient(160deg, var(--orange-light), #DCE6F0); }
+  #page-contact .section{ background:linear-gradient(110deg, #DCE6F0, var(--orange-light)); }
   .section-inner{ max-width:1100px; margin:0 auto; }
   .eyebrow{ color:var(--orange); font-weight:800; letter-spacing:.15em; font-size:1.15rem; text-transform:uppercase; }
   .section-title{ font-family:var(--font-serif); color:var(--dark); font-size:clamp(1.7rem,3vw,2.4rem); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; line-height:1.15; margin-top:14px; padding-left:22px; position:relative; }
@@ -259,6 +265,29 @@
   .role-list li{ position:relative; padding-left:16px; font-size:1.02rem; color:var(--text-light); line-height:1.6; margin-bottom:6px; }
   .role-list li::before{ content:'\2022'; position:absolute; left:0; color:var(--teal); }
   .role-card.future .role-list li::before{ color:var(--orange); }
+
+  /* ===== Featured leader cards (President/Co-President) ===== */
+  .featured-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:36px; }
+  .featured-card{ background:#fff; border-radius:18px; padding:26px 28px; box-shadow:0 10px 26px rgba(0,51,102,0.07); display:flex; gap:20px; align-items:center; position:relative; }
+  .featured-card .role-avatar{ width:96px; height:96px; font-size:1.6rem; }
+  .featured-badge{ position:absolute; top:20px; right:20px; font-size:.68rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase; padding:4px 12px; border-radius:999px; background:var(--teal-light); color:var(--teal); }
+
+  /* ===== Compact vacancy grid (director roles / chapter leaders) ===== */
+  .vacancy-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:22px; }
+  .vacancy-card{ background:#fff; border-radius:16px; padding:22px; box-shadow:0 8px 20px rgba(0,51,102,0.06); position:relative; }
+  .vacancy-badge{ position:absolute; top:16px; right:16px; font-size:.65rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase; padding:4px 10px; border-radius:999px; background:var(--teal-light); color:var(--teal); }
+  .vacancy-avatar{ width:60px; height:60px; border-radius:50%; background:var(--bg); border:2px dashed var(--border); display:flex; align-items:center; justify-content:center; color:var(--border); margin-bottom:14px; }
+  .vacancy-avatar svg{ width:26px; height:26px; }
+  .vacancy-title{ font-weight:800; color:var(--dark); font-size:.92rem; margin-bottom:4px; }
+  .vacancy-status{ font-size:.82rem; color:var(--teal); font-weight:600; }
+  @media (max-width:860px){
+    .featured-grid{ grid-template-columns:1fr; }
+    .vacancy-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:560px){
+    .vacancy-grid{ grid-template-columns:1fr; }
+    .featured-card{ flex-direction:column; text-align:center; }
+  }
   @media (max-width:640px){
     .role-row-top{ flex-direction:column !important; align-items:flex-start; text-align:left !important; }
   }
@@ -284,6 +313,13 @@
   }
 
   .programs-lead{ max-width:620px; margin-top:18px; font-size:1.02rem; color:var(--text); }
+  .cl-header{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .cl-header-map{ display:flex; justify-content:center; }
+  .cl-header-map img{ width:100%; max-width:420px; height:auto; }
+  @media (max-width:860px){
+    .cl-header{ grid-template-columns:1fr; }
+    .cl-header-map{ order:-1; max-width:260px; margin:0 auto; }
+  }
   .programs-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:48px; }
   .program-card{ background:#fff; border-radius:20px; padding:32px 26px; box-shadow:0 12px 28px rgba(0,51,102,0.06); transition:transform .3s ease, box-shadow .3s ease; }
   .program-card:hover{ transform:translateY(-5px); box-shadow:0 18px 38px rgba(0,51,102,.1); }
@@ -384,6 +420,7 @@
   .radio-option input{ width:16px; height:16px; accent-color:var(--dark); flex-shrink:0; }
   .modal-form .form-submit{ width:100%; justify-content:center; margin-top:6px; }
   .modal-note{ text-align:center; font-size:.8rem; color:var(--text-light); font-style:italic; margin-top:14px; }
+  .form-error{ text-align:center; font-size:.85rem; color:#B3261E; background:#FCEBEA; border-radius:8px; padding:10px 14px; margin-top:14px; }
 
   .modal-success{ text-align:center; padding:16px 0; }
   .success-icon{ width:64px; height:64px; border-radius:50%; background:var(--teal-light); color:var(--dark); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; }
@@ -486,6 +523,7 @@
         <div class="nav-submenu">
           <a href="#about" class="page-link" data-page="about">Our Mission</a>
           <a href="#board" class="page-link" data-page="board">Our Board</a>
+          <a href="#chapterleaders" class="page-link" data-page="chapterleaders">Our Chapter Leaders</a>
           <a href="#structure" class="page-link" data-page="structure">Our Network</a>
         </div>
       </div>
@@ -1158,168 +1196,151 @@
       <section class="section programs">
         <div class="section-inner">
           <p class="eyebrow reveal">Leadership</p>
-          <h2 class="section-title reveal">Meet the Board</h2>
-          <p class="programs-lead reveal">The National Collegiate Executive Board sets curriculum, strategy, and training for every NSPN chapter nationwide. Every board member completes SAMHSA Strategic Prevention Framework training as a condition of joining.</p>
+          <h2 class="section-title reveal">Meet the National Executive Board</h2>
+          <p class="programs-lead reveal">The National Collegiate Executive Board sets curriculum, strategy, and training for every NSPN chapter nationwide. Every board member completes <strong>SAMHSA</strong> Strategic Prevention Framework training as a condition of joining.</p>
 
-          <h3 class="role-section-label reveal">Executive Board</h3>
-          <div class="role-grid">
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar">IC</div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Founder &amp; President</h3><span class="role-badge active">Active</span></div>
-                  <p class="role-name">Isabella D. Choi</p>
-                  <ul class="role-bio-list">
-                    <li>Neuroscience @ Brown University, c/o 2029</li>
-                    <li>Stanford Medicine REACH Lab Certification</li>
-                  </ul>
-                </div>
+          <div class="featured-grid">
+            <div class="featured-card reveal">
+              <div class="role-avatar">IC</div>
+              <div>
+                <h3 style="margin:0 0 2px;color:var(--dark);font-size:1.05rem;font-weight:800;">Founder &amp; President</h3>
+                <p class="role-name" style="margin:0 0 4px;">Isabella D. Choi</p>
+                <ul class="role-bio-list">
+                  <li>Neuroscience @ Brown University, c/o 2029</li>
+                  <li>Stanford Medicine REACH Lab Certification</li>
+                </ul>
               </div>
+              <span class="featured-badge">Active</span>
             </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar">AW</div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Co-President</h3><span class="role-badge active">Active</span></div>
-                  <p class="role-name">Aaron Won</p>
-                </div>
+            <div class="featured-card reveal">
+              <div class="role-avatar">AW</div>
+              <div>
+                <h3 style="margin:0 0 2px;color:var(--dark);font-size:1.05rem;font-weight:800;">Co-President</h3>
+                <p class="role-name" style="margin:0 0 4px;">Aaron Won</p>
+                <ul class="role-bio-list">
+                  <li>Molecular and Cellular Biology @ Johns Hopkins University, c/o 2028</li>
+                </ul>
               </div>
-              <ul class="role-list">
-                <li>Directly support the President in strategic planning and major decision-making.</li>
-                <li>Coordinate daily board operations and manage key internal projects.</li>
-              </ul>
-            </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Director of High School Programs</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Lead recruitment and active support for established high school chapters.</li>
-                <li>Support chapter leaders and monitor chapter progress.</li>
-              </ul>
-            </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Director of Partnerships &amp; Outreach</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Drive new chapter recruitment and establish external organizational partnerships.</li>
-                <li>Build and maintain solid long-term relationships with schools and community public health entities.</li>
-              </ul>
-            </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Director of Communications &amp; Social Media</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Manage all official social media platforms (Instagram, LinkedIn) to grow digital presence.</li>
-                <li>Create engaging promotional content, educational infographics, and handle organizational communications.</li>
-              </ul>
-            </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Director of Technology</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Build and manage the organization&rsquo;s official website and centralized digital platforms.</li>
-                <li>Set up virtual workspaces and provide ongoing technical support for board members.</li>
-              </ul>
-            </div>
-
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Director of Chapter Development</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Develop chapter resources, support new chapter launches, and mentor chapter leaders.</li>
-              </ul>
-            </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Director of Events</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Plan and coordinate national conferences, youth workshops, and large-scale public health campaigns.</li>
-              </ul>
-            </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Director of Operations</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Organize internal board meetings, set agendas, track deadlines, and streamline daily administrative operations.</li>
-              </ul>
-            </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Director of Fundraising</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Secure corporate sponsorships, manage community fundraising campaigns, and draft federal/academic grant applications.</li>
-              </ul>
-            </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Director of Research &amp; Evaluation</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Oversee comprehensive program evaluation, conduct scientific data analysis, and draft annual impact reports.</li>
-              </ul>
-            </div>
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Treasurer</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Manage organizational finances and budgets.</li>
-                <li>Track expenses and maintain financial records.</li>
-              </ul>
+              <span class="featured-badge">Active</span>
             </div>
           </div>
 
-          <h3 class="role-section-label reveal">High School Leadership</h3>
-          <div class="role-grid">
-            <div class="role-card role-row reveal">
-              <div class="role-row-top">
-                <div class="role-avatar empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-                <div class="role-row-info">
-                  <div class="role-card-head"><h3>Chapter Leader</h3><span class="role-badge active">Active</span></div>
-                </div>
-              </div>
-              <ul class="role-list">
-                <li>Lead a school or community NSPN chapter, running peer sessions, campaigns, and events under a college mentor&rsquo;s guidance.</li>
-                <li>Report chapter progress and case studies back to the National Collegiate Executive Board.</li>
-              </ul>
+          <div class="vacancy-grid">
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Director of High School Programs</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Director of Partnerships &amp; Outreach</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Director of Communications &amp; Social Media</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Director of Technology</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Director of Chapter Development</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Director of Events</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Director of Operations</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Director of Fundraising</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Director of Research &amp; Evaluation</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Treasurer</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="page" id="page-chapterleaders">
+      <section class="section programs">
+        <div class="section-inner">
+          <div class="cl-header">
+            <div class="cl-header-text">
+              <p class="eyebrow reveal">Leadership</p>
+              <h2 class="section-title cl-title reveal">Meet the Chapter Leaders</h2>
+              <p class="programs-lead cl-lead reveal">Our high school chapter leaders are student leaders who are driving change in their schools and communities through prevention, education, and advocacy.</p>
+            </div>
+            <div class="cl-header-map reveal" aria-hidden="true">
+              <img src="data:image/png;base64,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" alt="" style="width:100%;height:auto;display:block;">
+            </div>
+          </div>
+
+          <div class="vacancy-grid">
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Chapter Leader</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Chapter Leader</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Chapter Leader</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Chapter Leader</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Chapter Leader</p>
+              <p class="vacancy-status">Vacant</p>
+            </div>
+            <div class="vacancy-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <div class="vacancy-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+              <p class="vacancy-title">Chapter Leader</p>
+              <p class="vacancy-status">Vacant</p>
             </div>
           </div>
         </div>
@@ -1457,8 +1478,8 @@
         <div class="section-inner">
           <div class="section-head centered">
             <p class="eyebrow reveal">Join NSPN</p>
-            <h2 class="section-title center reveal">Open Positions</h2>
-            <p class="involved-lead reveal">Three ways to get involved &mdash; as a college leader, or a high school chapter leader in or out of school. All positions require completing SAMHSA Strategic Prevention Framework (SPF) training; high school chapters also need a faculty advisor.</p>
+            <h2 class="section-title center reveal">Choose Your Role</h2>
+            <p class="involved-lead reveal">There are three ways to get involved with NSPN. Choose the leadership opportunity that best fits your interests and make a difference in your community.</p>
           </div>
           <div class="involved-grid">
             <div class="involved-card reveal">
@@ -1523,17 +1544,19 @@
           </div>
           <div class="contact-card reveal">
             <p>Starting a chapter, partnering with NSPN, or bringing this to your campus? Email us &mdash; a real person reads every message.</p>
-            <p class="contact-email">contact@substancepreventionnetwork.org</p>
-            <a href="mailto:contact@substancepreventionnetwork.org" class="btn btn-primary">
+            <p class="contact-email">contact@thenspn.org</p>
+            <a href="mailto:contact@thenspn.org" class="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
               Email Us
             </a>
             <div class="contact-divider"><span>or send a message</span></div>
             <form id="contactForm" class="contact-form">
-              <div class="field"><label for="contact-name">Name *</label><input type="text" id="contact-name" required placeholder="Enter your name"></div>
-              <div class="field"><label for="contact-email-field">Email Address *</label><input type="email" id="contact-email-field" required placeholder="Enter your email address"></div>
-              <div class="field"><label for="contact-message">Message *</label><textarea id="contact-message" required placeholder="How can we help?" rows="4"></textarea></div>
+              <input type="hidden" name="_subject" value="New NSPN Website Contact Message">
+              <div class="field"><label for="contact-name">Name *</label><input type="text" id="contact-name" name="Name" required placeholder="Enter your name"></div>
+              <div class="field"><label for="contact-email-field">Email Address *</label><input type="email" id="contact-email-field" name="Email" required placeholder="Enter your email address"></div>
+              <div class="field"><label for="contact-message">Message *</label><textarea id="contact-message" name="Message" required placeholder="How can we help?" rows="4"></textarea></div>
               <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+              <p class="form-error" hidden>Something went wrong sending your message. Please try again, or email us directly.</p>
             </form>
             <div class="contact-success" id="contactSuccess" hidden>
               <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
@@ -1578,7 +1601,7 @@
         <div class="footer-contact">
           <h4>Get in Touch</h4>
           <ul>
-            <li><a href="mailto:contact@substancepreventionnetwork.org">contact@substancepreventionnetwork.org</a></li>
+            <li><a href="mailto:contact@thenspn.org">contact@thenspn.org</a></li>
           </ul>
         </div>
       </div>
@@ -1602,28 +1625,30 @@
         <h3>College Executive Board Application</h3>
         <p class="modal-sub">Join the leadership team that guides NSPN.</p>
         <form id="boardForm">
-          <div class="field"><label for="board-name">Full Name *</label><input type="text" id="board-name" required placeholder="Enter your full name"></div>
-          <div class="field"><label for="board-college">College / University *</label><input type="text" id="board-college" required placeholder="Enter your college or university"></div>
+          <input type="hidden" name="_subject" value="New NSPN Board Application">
+          <div class="field"><label for="board-name">Full Name *</label><input type="text" id="board-name" name="Full Name" required placeholder="Enter your full name"></div>
+          <div class="field"><label for="board-college">College / University *</label><input type="text" id="board-college" name="College/University" required placeholder="Enter your college or university"></div>
           <div class="field-row">
             <div class="field"><label for="board-year">Current Year *</label>
-              <select id="board-year" required>
+              <select id="board-year" name="Current Year" required>
                 <option value="">Select your current year</option>
                 <option>Freshman</option><option>Sophomore</option><option>Junior</option><option>Senior</option><option>Graduate Student</option>
               </select>
             </div>
             <div class="field"><label for="board-gradyear">Expected Graduation Year *</label>
-              <select id="board-gradyear" required>
+              <select id="board-gradyear" name="Expected Graduation Year" required>
                 <option value="">Select year</option>
                 <option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>2030</option>
               </select>
             </div>
           </div>
-          <div class="field"><label for="board-major">Major *</label><input type="text" id="board-major" required placeholder="Enter your major"></div>
-          <div class="field"><label for="board-email">Email Address *</label><input type="email" id="board-email" required placeholder="Enter your email address"></div>
-          <div class="field"><label for="board-phone">Phone Number *</label><input type="tel" id="board-phone" required placeholder="Enter your phone number"></div>
-          <div class="field"><label for="board-why">Why do you want to join? *</label><textarea id="board-why" required placeholder="Tell us a bit about why you're interested" rows="3"></textarea></div>
-          <label class="radio-option"><input type="checkbox" id="board-samhsa" required> I understand SAMHSA Strategic Prevention Framework training is required for all board members.</label>
+          <div class="field"><label for="board-major">Major *</label><input type="text" id="board-major" name="Major" required placeholder="Enter your major"></div>
+          <div class="field"><label for="board-email">Email Address *</label><input type="email" id="board-email" name="Email" required placeholder="Enter your email address"></div>
+          <div class="field"><label for="board-phone">Phone Number *</label><input type="tel" id="board-phone" name="Phone" required placeholder="Enter your phone number"></div>
+          <div class="field"><label for="board-why">Why do you want to join? *</label><textarea id="board-why" name="Why They Want to Join" required placeholder="Tell us a bit about why you're interested" rows="3"></textarea></div>
+          <label class="radio-option"><input type="checkbox" id="board-samhsa" name="SAMHSA Acknowledgment" value="Acknowledged" required> I understand SAMHSA Strategic Prevention Framework training is required for all board members.</label>
           <button type="submit" class="btn btn-primary form-submit">Apply</button>
+          <p class="form-error" hidden>Something went wrong sending your application. Please try again, or email us directly.</p>
           <p class="modal-note">This is a volunteer leadership position.</p>
         </form>
       </div>
@@ -1633,23 +1658,25 @@
         <h3>High School Chapter Leader Application</h3>
         <p class="modal-sub">Lead a local NSPN chapter and make a difference.</p>
         <form id="hsForm">
-          <div class="field"><label for="hs-name">Full Name *</label><input type="text" id="hs-name" required placeholder="Enter your full name"></div>
-          <div class="field"><label for="hs-school">High School *</label><input type="text" id="hs-school" required placeholder="Enter your high school"></div>
+          <input type="hidden" name="_subject" value="New NSPN High School Chapter Leader Application">
+          <div class="field"><label for="hs-name">Full Name *</label><input type="text" id="hs-name" name="Full Name" required placeholder="Enter your full name"></div>
+          <div class="field"><label for="hs-school">High School *</label><input type="text" id="hs-school" name="High School" required placeholder="Enter your high school"></div>
           <div class="field"><label for="hs-grade">Grade *</label>
-            <select id="hs-grade" required>
+            <select id="hs-grade" name="Grade" required>
               <option value="">Select your grade</option>
               <option>9th Grade</option><option>10th Grade</option><option>11th Grade</option><option>12th Grade</option>
             </select>
           </div>
           <fieldset class="radio-group">
             <legend>Chapter Type *</legend>
-            <label class="radio-option"><input type="radio" name="chapterType" value="school" required> School Chapter (In-School)</label>
-            <label class="radio-option"><input type="radio" name="chapterType" value="community" required> Community Chapter (Out-of-School)</label>
+            <label class="radio-option"><input type="radio" name="Chapter Type" value="School Chapter (In-School)" required> School Chapter (In-School)</label>
+            <label class="radio-option"><input type="radio" name="Chapter Type" value="Community Chapter (Out-of-School)" required> Community Chapter (Out-of-School)</label>
           </fieldset>
-          <div class="field"><label for="hs-email">Email Address *</label><input type="email" id="hs-email" required placeholder="Enter your email address"></div>
-          <div class="field"><label for="hs-phone">Phone Number *</label><input type="tel" id="hs-phone" required placeholder="Enter your phone number"></div>
-          <div class="field"><label for="hs-advisor">Faculty Advisor Name *</label><input type="text" id="hs-advisor" required placeholder="A staff member willing to advise your chapter"></div>
+          <div class="field"><label for="hs-email">Email Address *</label><input type="email" id="hs-email" name="Email" required placeholder="Enter your email address"></div>
+          <div class="field"><label for="hs-phone">Phone Number *</label><input type="tel" id="hs-phone" name="Phone" required placeholder="Enter your phone number"></div>
+          <div class="field"><label for="hs-advisor">Faculty Advisor Name *</label><input type="text" id="hs-advisor" name="Faculty Advisor Name" required placeholder="A staff member willing to advise your chapter"></div>
           <button type="submit" class="btn btn-primary form-submit">Apply</button>
+          <p class="form-error" hidden>Something went wrong sending your application. Please try again, or email us directly.</p>
           <p class="modal-note">This is a volunteer leadership position. A faculty advisor and SAMHSA SPF training are required to launch a chapter.</p>
         </form>
       </div>
@@ -1675,7 +1702,7 @@
 
   // Nav groups (About > Our Mission / Our Board / Our Network, What We Do > Programs / Get Involved)
   var navGroups = [
-    { toggle: document.getElementById('aboutToggle'), group: document.getElementById('aboutGroup'), children: ['about', 'board', 'structure'] },
+    { toggle: document.getElementById('aboutToggle'), group: document.getElementById('aboutGroup'), children: ['about', 'board', 'chapterleaders', 'structure'] },
     { toggle: document.getElementById('whatWeDoToggle'), group: document.getElementById('whatWeDoGroup'), children: ['programs', 'involved'] }
   ];
   navGroups.forEach(function(ng){
@@ -1688,7 +1715,7 @@
   // Page switching
   var pages = document.querySelectorAll('.page');
   var pageLinks = document.querySelectorAll('.page-link');
-  var validPages = ['home','about','board','structure','programs','involved','resources','contact'];
+  var validPages = ['home','about','board','chapterleaders','structure','programs','involved','resources','contact'];
 
   function showPage(id){
     if (validPages.indexOf(id) === -1) id = 'home';
@@ -1785,7 +1812,8 @@
     if (formType === 'highschool') {
       formHS.hidden = false;
       if (chapterType) {
-        var radio = hsForm.querySelector('input[name="chapterType"][value="' + chapterType + '"]');
+        var chapterTypeMap = { school: 'School Chapter (In-School)', community: 'Community Chapter (Out-of-School)' };
+        var radio = hsForm.querySelector('input[name="Chapter Type"][value="' + (chapterTypeMap[chapterType] || chapterType) + '"]');
         if (radio) radio.checked = true;
       }
     } else {
@@ -1808,10 +1836,36 @@
   modalOverlay.addEventListener('click', function(e){ if (e.target === modalOverlay) closeModal(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal(); });
 
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrenjjdg';
+
+  function submitToFormspree(form, onSuccess){
+    var submitBtn = form.querySelector('.form-submit');
+    var errorMsg = form.querySelector('.form-error');
+    var originalLabel = submitBtn ? submitBtn.textContent : '';
+    if (errorMsg) errorMsg.hidden = true;
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending\u2026'; }
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response){
+      if (response.ok) {
+        onSuccess();
+      } else {
+        if (errorMsg) errorMsg.hidden = false;
+      }
+    }).catch(function(){
+      if (errorMsg) errorMsg.hidden = false;
+    }).finally(function(){
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+    });
+  }
+
   function handleSubmit(e){
     e.preventDefault();
     var activeForm = formBoard.hidden ? formHS : formBoard;
-    swapPanel(activeForm, modalSuccess);
+    submitToFormspree(activeForm, function(){ swapPanel(activeForm, modalSuccess); });
   }
   boardForm.addEventListener('submit', handleSubmit);
   hsForm.addEventListener('submit', handleSubmit);
@@ -1822,7 +1876,7 @@
   if (contactForm) {
     contactForm.addEventListener('submit', function(e){
       e.preventDefault();
-      swapPanel(contactForm, contactSuccess);
+      submitToFormspree(contactForm, function(){ swapPanel(contactForm, contactSuccess); });
     });
   }
 
