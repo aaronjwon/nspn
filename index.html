@@ -1836,48 +1836,47 @@
   modalOverlay.addEventListener('click', function(e){ if (e.target === modalOverlay) closeModal(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal(); });
 
-  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrenjjdg';
+  // Formspree AJAX (official library) - see https://help.formspree.io/articles/building-your-form/submit-forms-with-javascript-ajax
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
 
-  function submitToFormspree(form, onSuccess){
-    var submitBtn = form.querySelector('.form-submit');
-    var errorMsg = form.querySelector('.form-error');
-    var originalLabel = submitBtn ? submitBtn.textContent : '';
-    if (errorMsg) errorMsg.hidden = true;
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending\u2026'; }
-
-    fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(function(response){
-      if (response.ok) {
-        onSuccess();
-      } else {
-        if (errorMsg) errorMsg.hidden = false;
+  function wireFormspreeForm(formSelector, onSuccess){
+    formspree('initForm', {
+      formElement: formSelector,
+      formId: 'xrenjjdg',
+      disable: function(ctx){
+        var btn = ctx.form.querySelector('.form-submit');
+        var err = ctx.form.querySelector('.form-error');
+        if (err) err.hidden = true;
+        if (btn) { btn.dataset.originalLabel = btn.dataset.originalLabel || btn.textContent; btn.disabled = true; btn.textContent = 'Sending\u2026'; }
+      },
+      enable: function(ctx){
+        var btn = ctx.form.querySelector('.form-submit');
+        if (btn && btn.dataset.originalLabel) { btn.disabled = false; btn.textContent = btn.dataset.originalLabel; }
+      },
+      renderSuccess: function(ctx){
+        onSuccess(ctx.form);
+      },
+      renderFormError: function(ctx){
+        console.error('[NSPN form] Formspree returned a form-level error.');
+        var err = ctx.form.querySelector('.form-error');
+        if (err) err.hidden = false;
+      },
+      onFailure: function(ctx, error){
+        console.error('[NSPN form] Submission failed:', error);
+        var err = ctx.form.querySelector('.form-error');
+        if (err) err.hidden = false;
       }
-    }).catch(function(){
-      if (errorMsg) errorMsg.hidden = false;
-    }).finally(function(){
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
     });
   }
 
-  function handleSubmit(e){
-    e.preventDefault();
-    var activeForm = formBoard.hidden ? formHS : formBoard;
-    submitToFormspree(activeForm, function(){ swapPanel(activeForm, modalSuccess); });
-  }
-  boardForm.addEventListener('submit', handleSubmit);
-  hsForm.addEventListener('submit', handleSubmit);
+  wireFormspreeForm('#boardForm', function(){ swapPanel(formBoard.hidden ? formHS : formBoard, modalSuccess); });
+  wireFormspreeForm('#hsForm', function(){ swapPanel(formBoard.hidden ? formHS : formBoard, modalSuccess); });
 
   // Contact page form
   var contactForm = document.getElementById('contactForm');
   var contactSuccess = document.getElementById('contactSuccess');
   if (contactForm) {
-    contactForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      submitToFormspree(contactForm, function(){ swapPanel(contactForm, contactSuccess); });
-    });
+    wireFormspreeForm('#contactForm', function(){ swapPanel(contactForm, contactSuccess); });
   }
 
   function swapPanel(hideEl, showEl){
@@ -1912,5 +1911,6 @@
     el.addEventListener('click', spawnRipple);
   });
 </script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
