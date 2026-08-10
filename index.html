@@ -161,6 +161,12 @@
   #page-contact .section{ background:linear-gradient(110deg, #DCE6F0, var(--orange-light)); }
   .section-inner{ max-width:1100px; margin:0 auto; }
   .eyebrow{ color:var(--orange); font-weight:800; letter-spacing:.15em; font-size:1.15rem; text-transform:uppercase; }
+  .eyebrow-flourish{ display:flex; align-items:center; justify-content:center; gap:10px; }
+  .eyebrow-flourish .flourish-line{ width:50px; height:1.5px; background:var(--orange); flex-shrink:0; }
+  .eyebrow-flourish .flourish-diamond{ width:7px; height:7px; background:var(--orange); transform:rotate(45deg); flex-shrink:0; }
+  .mini-flourish{ display:flex; align-items:center; justify-content:center; gap:8px; margin:16px 0 0; }
+  .mini-flourish .flourish-line{ width:36px; height:1.5px; background:var(--dark); }
+  .mini-flourish .flourish-diamond{ width:6px; height:6px; background:var(--orange); transform:rotate(45deg); flex-shrink:0; }
   .section-title{ font-family:var(--font-serif); color:var(--dark); font-size:clamp(1.7rem,3vw,2.4rem); font-weight:900; text-transform:uppercase; letter-spacing:-.01em; line-height:1.15; margin-top:14px; padding-left:22px; position:relative; }
   .section-title::before{ content:''; position:absolute; left:0; top:5px; bottom:5px; width:4px; background:var(--orange); border-radius:2px; }
   .section-title.center{ padding-left:0; display:inline-block; }
@@ -1416,7 +1422,7 @@
       <section class="section structure">
         <div class="section-inner">
           <div class="section-head centered">
-            <p class="eyebrow reveal">Organization</p>
+            <p class="eyebrow eyebrow-flourish reveal"><span class="flourish-line"></span><span class="flourish-diamond"></span>Organization<span class="flourish-diamond"></span><span class="flourish-line"></span></p>
             <h2 class="section-title center reveal">A Network Built on Three Pillars</h2>
           </div>
           <div class="org-chart reveal">
@@ -1483,8 +1489,9 @@
       <section class="section where-we-are">
         <div class="section-inner">
           <div class="section-head centered">
-            <p class="eyebrow reveal">Current Chapters</p>
+            <p class="eyebrow eyebrow-flourish reveal"><span class="flourish-line"></span><span class="flourish-diamond"></span>Our National Collegiate Network<span class="flourish-diamond"></span><span class="flourish-line"></span></p>
             <h2 class="section-title center reveal">Where We&rsquo;re At</h2>
+            <div class="mini-flourish reveal"><span class="flourish-line"></span><span class="flourish-diamond"></span><span class="flourish-line"></span></div>
             <p class="involved-lead reveal" style="color:var(--text);">NSPN currently has affiliations at these institutions, with more launching every semester.</p>
           </div>
           <div class="school-pill-wrap">
