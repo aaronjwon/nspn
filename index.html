@@ -217,7 +217,7 @@
   .org-node h3{ font-family:var(--font-sans); font-weight:800; font-size:1.02rem; line-height:1.3; }
 
   .tier-nspn{ background:linear-gradient(135deg, var(--dark), var(--dark-2)); border:2px solid var(--orange); }
-  .tier-nspn .org-icon{ background:var(--orange); color:#fff; }
+  .tier-nspn .org-icon{ background:#fff; padding:6px; }
   .tier-nspn h3{ color:#fff; font-size:1.2rem; }
   .org-sub{ color:rgba(244,244,242,.65); font-size:.8rem; font-style:italic; margin-top:3px; }
 
@@ -309,6 +309,7 @@
   .logo-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:20px; margin-top:48px; max-width:1000px; margin-left:auto; margin-right:auto; }
   .school-pill-wrap{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:48px; max-width:1000px; margin-left:auto; margin-right:auto; }
   .school-pill{ background:linear-gradient(135deg, var(--teal), var(--dark)); color:#fff; border:1.5px solid var(--gold-bright); border-radius:999px; padding:12px 26px; font-weight:700; font-size:.92rem; white-space:nowrap; }
+  .school-pill-note{ text-align:center; color:var(--teal); font-size:.9rem; font-weight:600; margin-top:32px; }
   .logo-card{ aspect-ratio:1; border-radius:18px; display:flex; align-items:center; justify-content:center; padding:16px; text-align:center; position:relative; overflow:hidden; }
   .logo-card.filled{ background:#fff; box-shadow:0 10px 26px rgba(0,51,102,0.07); }
   .logo-card.empty{ background:transparent; border:2px dashed var(--border); color:var(--border); }
@@ -1421,7 +1422,15 @@
           <div class="org-chart reveal">
 
             <div class="org-node tier-nspn">
-              <div class="org-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.2c0 5.1-3 8.7-7 9.8-4-1.1-7-4.7-7-9.8V6l7-3z"/><path d="M8.7 12.2l2.3 2.3 4.3-4.6"/></svg></div>
+              <div class="org-icon">
+                <svg viewBox="0 0 44 44" style="width:100%;height:100%;">
+                  <path d="M22 3L35 8V19C35 29 29 36 22 40C15 36 9 29 9 19V8Z" fill="#2B5F94"/>
+                  <path d="M22 11v7M18.5 14.5h7" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                  <rect x="16.3" y="28.5" width="2.8" height="5" rx="1" fill="#fff"/>
+                  <rect x="20.6" y="26" width="2.8" height="7.5" rx="1" fill="#fff"/>
+                  <rect x="24.9" y="23" width="2.8" height="10.5" rx="1" fill="#fff"/>
+                </svg>
+              </div>
               <div class="org-node-text">
                 <h3>NSPN</h3>
                 <p class="org-sub">National Substance Prevention Network</p>
@@ -1493,6 +1502,7 @@
             <span class="school-pill reveal">Cal Poly Pomona</span>
             <span class="school-pill reveal">UCLA</span>
           </div>
+          <p class="school-pill-note reveal">Board member institutions &bull; Updated each semester</p>
         </div>
       </section>
     </div>
@@ -1636,7 +1646,7 @@
           <p>National Substance Prevention Network &mdash; a nationwide, student-led network teaching students to make safer choices, one chapter at a time.</p>
           <div class="footer-social">
             <a href="https://instagram.com/thenspn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
-            <a href="https://www.linkedin.com/in/national-substance-prevention-network-nspn-b45109427/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="7.8" cy="8" r="1.1" fill="currentColor" stroke="none"/><path d="M7.8 11v6.2M12.2 11v6.2M12.2 13.6c0-1.6 1-2.7 2.5-2.7s2.5 1.1 2.5 2.7v3.6" stroke-linecap="round"/></svg></a>
+            <a href="https://www.linkedin.com/company/thenspn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="7.8" cy="8" r="1.1" fill="currentColor" stroke="none"/><path d="M7.8 11v6.2M12.2 11v6.2M12.2 13.6c0-1.6 1-2.7 2.5-2.7s2.5 1.1 2.5 2.7v3.6" stroke-linecap="round"/></svg></a>
           </div>
         </div>
         <div class="footer-links">
