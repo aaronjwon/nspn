@@ -291,14 +291,15 @@
   .vacancy-status{ font-size:.82rem; color:var(--teal); font-weight:600; }
 
   /* ===== Advisors ===== */
-  .advisor-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:22px; }
+  .advisor-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:22px; }
   .advisor-card{ background:#fff; border-radius:16px; padding:24px 26px; box-shadow:0 8px 20px rgba(0,51,102,0.06); border-left:4px solid var(--orange); position:relative; }
   .advisor-name{ font-weight:800; color:var(--dark); font-size:1rem; margin:0 0 2px; }
   .advisor-role{ font-style:italic; color:var(--orange); font-size:.85rem; font-weight:600; margin:0 0 12px; padding-bottom:12px; border-bottom:1px solid var(--border); }
   .advisor-bio{ font-size:.88rem; color:var(--text-light); line-height:1.6; margin:0; }
   .advisor-link{ display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:.85rem; font-weight:700; color:var(--dark); text-decoration:underline; }
   .advisor-link svg{ width:15px; height:15px; color:var(--orange); flex-shrink:0; }
-  @media (max-width:700px){ .advisor-grid{ grid-template-columns:1fr; } }
+  @media (max-width:900px){ .advisor-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .advisor-grid{ grid-template-columns:1fr; } }
   @media (max-width:860px){
     .featured-grid{ grid-template-columns:1fr; }
     .vacancy-grid{ grid-template-columns:repeat(2,1fr); }
@@ -1357,6 +1358,12 @@
               <p class="advisor-role">Advisor</p>
               <p class="advisor-bio">Business Administration graduate from California State University, Fullerton, currently pursuing a Doctor of Psychology (PsyD) degree with an interdisciplinary background in business and psychology.</p>
             </div>
+            <div class="advisor-card reveal">
+              <span class="vacancy-badge">Active</span>
+              <p class="advisor-name">Seoyoon Choi, BA, J.D. Candidate</p>
+              <p class="advisor-role">Advisor</p>
+              <p class="advisor-bio">J.D. Candidate at Duke University School of Law, specializing in public policy and nonprofit governance. Degree in International Relations and Philosophy, Politics &amp; Economics, Claremont McKenna College.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1729,6 +1736,12 @@
           <input type="hidden" name="_subject" value="New NSPN High School Chapter Leader Application">
           <div class="field"><label for="hs-name">Full Name *</label><input type="text" id="hs-name" name="Full Name" required placeholder="Enter your full name"></div>
           <div class="field"><label for="hs-school">High School *</label><input type="text" id="hs-school" name="High School" required placeholder="Enter your high school"></div>
+          <div class="field"><label for="hs-state">State *</label>
+            <select id="hs-state" name="State" required>
+              <option value="">Select your state</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option><option>District of Columbia</option>
+            </select>
+          </div>
           <div class="field"><label for="hs-grade">Grade *</label>
             <select id="hs-grade" name="Grade" required>
               <option value="">Select your grade</option>
